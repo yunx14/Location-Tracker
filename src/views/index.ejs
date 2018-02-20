@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1><%=title%></h1>
+	<div>
+		<ul>
+			<% for(var i=0; i<rsvps.length; i++){%>
+				<li>
+					<p><%=rsvps[i].city%>, <%=rsvps[i].state%></p>
+				</li>
+			<%}%>
+		</ul>
+	</div>
+
+	<div id="map" style="width: 600px; height: 500px;"></div>
+
+	<div>	
+		<form action="/auth/signIn" method="POST">
+			<div>
+				<label for="firstName">First Name</label>
+				<input type="text" name="firstName" id="firstName">
+			</div>
+			<div>
+				<label for="lastName">Last Name</label>
+				<input type="text" name="lastName" id="lastName">
+			</div>
+			<div>
+				<label for="email">Email</label>
+				<input type="email" name="email" id="email">
+			</div>
+			<div>
+				<label for="fgender">Gender</label>
+				<select name="gender" id="gender">
+					<option value="Male">M</option>
+					<option value="Female">M</option>
+				</select>
+			</div>
+			<div>
+				<label for="city">City</label>
+				<input type="text" name="city" id="city">
+			</div>
+			<div>
+				<label for="state">State</label>
+				<input type="text" name="state" id="state">
+			</div>
+			<input type="hidden" name="latitude" id="latitude" value="">
+			<input type="hidden" name="longitude" id="longitude" value="">
+			<div>
+				<button type="submit">Submit my location</button>
+			</div>
+		</form>
+	</div>
+
+	</div>
+	<script>var dbResults = <%- dbRecords %>;</script>
+	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+	<script src="js/socketio.js"></script>
+	<script src="js/index.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAX-0O9AOfC8oj-vomfN6-kkGuHFjaeCA&callback=initMap" async defer ></script>
+</body>
+</html>

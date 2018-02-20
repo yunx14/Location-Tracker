@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1><%=title%></h1>
+
+	<div>	
+		<ul>
+			<% for(var i=0; i<rsvps.length; i++){%>
+				<li>
+					<a href="/locations/<%=rsvps[i]._id%>">
+						<h2><%=rsvps[i].first_name%>&nbsp;<%=rsvps[i].last_name%></h2>
+						<p><%=rsvps[i].city%>, <%=rsvps[i].state%></p>
+					</a>
+				</li>
+			<%}%>
+		</ul>
+	</div>
+</body>
+</html>
